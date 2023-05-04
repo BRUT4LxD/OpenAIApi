@@ -4,9 +4,32 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageId>OpenAIApi.$(AssemblyName)</PackageId>
+    <PackageId>OpenAI.$(AssemblyName)Client</PackageId>
     <PackageVersion>1.0.0</PackageVersion>
+    <Title>ChatClient for OpenAI Language Models</Title>
+    <Company />
+    <Authors>Pawel Tarsala</Authors>
+    <Description>Implementation of the client for OpenAI language models</Description>
+    <Copyright>MIT</Copyright>
+    <PackageProjectUrl>https://github.com/BRUT4LxD/OpenAIApi</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/BRUT4LxD/OpenAIApi</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>openai;chat;chatgpt;ai;language;models;nlp</PackageTags>
+    <IncludeSymbols>True</IncludeSymbols>
+    <ApplicationIcon>38f9afc2-211a-40ad-b40b-8fe2599ed68f.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="38f9afc2-211a-40ad-b40b-8fe2599ed68f.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Text.Json" Version="7.0.2" />
