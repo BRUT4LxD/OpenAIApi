@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace ChatGPT.DTO;
+namespace Chat.DTO;
 
 public class ChatResponseChoice
 {

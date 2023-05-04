@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Audio\Audio.csproj" />
+    <ProjectReference Include="..\Chat\Chat.csproj" />
+    <ProjectReference Include="..\Completions\Completions.csproj" />
+    <ProjectReference Include="..\Edits\Edits.csproj" />
+    <ProjectReference Include="..\Embeddings\Embeddings.csproj" />
+    <ProjectReference Include="..\Engines\Engines.csproj" />
+    <ProjectReference Include="..\Files\Files.csproj" />
+    <ProjectReference Include="..\FineTunes\FineTunes.csproj" />
+    <ProjectReference Include="..\Images\Images.csproj" />
+    <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\Moderations\Moderations.csproj" />
+  </ItemGroup>
+
+</Project>

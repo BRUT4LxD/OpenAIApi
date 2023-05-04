@@ -1,8 +1,9 @@
 ﻿namespace Chat;
 
-public static class Constants
+public static class ChatConstants
 {
     public const string ChatUrl = "https://api.openai.com/v1/chat/completions";
+
     public static class ChatModels
     {
         public const string GPT4 = "gpt-4";

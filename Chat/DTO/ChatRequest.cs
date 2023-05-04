@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace ChatGPT.DTO;
+namespace Chat.DTO;
 
 
 public class ChatRequest
@@ -9,14 +9,14 @@ public class ChatRequest
     /// ID of the model to use. You can use the List models API to see all of your available models, or see our Model overview for descriptions of them.
     /// </summary>
     [JsonPropertyName("model")]
-    public string Model { get; set; } = "gpt-3.5-turbo";
+    public string Model { get; set; }
 
 
     /// <summary>
     /// A list of messages describing the conversation so far.
     /// </summary>
     [JsonPropertyName("messages")]
-    public List<ChatMessage> Messages { get; set; } = new();
+    public List<ChatMessage> Messages { get; set; }
 
     /// <summary>
     /// What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, 
@@ -24,7 +24,7 @@ public class ChatRequest
     /// We generally recommend altering this or top_p but not both.
     /// </summary>
     [JsonPropertyName("temperature")]
-    public double Temperature { get; set; } = 0.7;
+    public double Temperature { get; set; }
 
 
     /// <summary>
@@ -34,7 +34,7 @@ public class ChatRequest
     /// We generally recommend altering this or temperature but not both.
     /// </summary>
     [JsonPropertyName("top_p")]
-    public double TopP { get; set; } = 0.9;
+    public double TopP { get; set; }
 
     /// <summary>
     /// How many completions to generate for each prompt.
@@ -57,6 +57,7 @@ public class ChatRequest
     /// Up to 4 sequences where the API will stop generating further tokens. The returned text will not contain the stop sequence.
     /// </summary>
     [JsonPropertyName("stop")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public string[] Stop { get; set; }
 
     /// <summary>
@@ -65,23 +66,21 @@ public class ChatRequest
     /// Most models have a context length of 2048 tokens (except for the newest models, which support 4096).
     /// </summary>
     [JsonPropertyName("max_tokens")]
-    public long MaxTokens { get; set; } = 256;
-
-
+    public long MaxTokens { get; set; }
 
     /// <summary>
     /// Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far,
     /// increasing the model's likelihood to talk about new topics.
     /// </summary>
     [JsonPropertyName("presence_penalty")]
-    public double PresencePenalty { get; set; } = 0.0;
+    public double PresencePenalty { get; set; }
 
     /// <summary>
     /// Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far,
     /// decreasing the model's likelihood to repeat the same line verbatim.
     /// </summary>
     [JsonPropertyName("frequency_penalty")]
-    public double FrequencyPenalty { get; set; } = 0.0;
+    public double FrequencyPenalty { get; set; }
 
 
     /// <summary>
@@ -94,6 +93,7 @@ public class ChatRequest
     /// should result in a ban or exclusive selection of the relevant token.
     /// </summary>
     [JsonPropertyName("logit_bias")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public Dictionary<string, int> LogitBias { get; set; }
 
     /// <summary>
@@ -101,6 +101,7 @@ public class ChatRequest
     /// <see href="https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids">Learn more</see>
     /// </summary>
     [JsonPropertyName("user")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public string User { get; set; }
 
     public static ChatRequest Create(List<ChatMessage> messages, ChatConfig config, bool stream = false)
